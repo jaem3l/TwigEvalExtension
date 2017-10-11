@@ -1,0 +1,22 @@
+{
+    "name": "jaem3l/twig-eval-extension",
+    "description": "Provides eval as a function in your twig templates.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Denis Brumann",
+            "email": "denis.brumann@sensiolabs.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Brumann\\Twig\\": "src/Twig"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "twig/twig": "^2.4",
+        "phpunit/phpunit": "^6.4"
+    }
+}
