@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Brumann\Twig\Tests;
+namespace jæm3l\Twig\Tests;
 
-use Brumann\Twig\EvalExtension;
+use jæm3l\Twig\EvalExtension;
 use PHPUnit\Framework\TestCase;
+use Twig\Environment;
+use Twig\Loader\ArrayLoader;
 
 class EvalExtensionTest extends TestCase
 {
@@ -15,8 +17,8 @@ class EvalExtensionTest extends TestCase
             'simple_eval' => '{{ eval("echo 1+1;") }}',
         ];
 
-        $loader = new \Twig_Loader_Array($templates);
-        $twig = new \Twig_Environment($loader);
+        $loader = new ArrayLoader($templates);
+        $twig = new Environment($loader);
         $twig->addExtension(new EvalExtension());
 
         $output = $twig->render('simple_eval');
@@ -30,12 +32,27 @@ class EvalExtensionTest extends TestCase
             'nested_eval' => '{{ eval("eval(\"echo 1+2;\");") }}',
         ];
 
-        $loader = new \Twig_Loader_Array($templates);
-        $twig = new \Twig_Environment($loader);
+        $loader = new ArrayLoader($templates);
+        $twig = new Environment($loader);
         $twig->addExtension(new EvalExtension());
 
         $output = $twig->render('nested_eval');
 
         $this->assertSame('3', $output);
+    }
+
+    public function testEvalTag()
+    {
+        $templates = [
+            'eval_tag' => '{% eval %}echo 1+3;{% endeval %}',
+        ];
+
+        $loader = new ArrayLoader($templates);
+        $twig = new Environment($loader);
+        $twig->addExtension(new EvalExtension());
+
+        $output = $twig->render('eval_tag');
+
+        $this->assertSame('4', $output);
     }
 }
