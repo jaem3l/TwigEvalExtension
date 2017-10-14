@@ -15,4 +15,11 @@ class EvalExtension extends AbstractExtension
             new TwigFunction('eval', 'eval'),
         ];
     }
+
+    public function getTokenParsers(): array
+    {
+        return [
+            new EvalTokenParser(),
+        ];
+    }
 }

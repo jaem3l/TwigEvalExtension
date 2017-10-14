@@ -20,6 +20,13 @@ Using the eval function:
 {{ eval('echo 1+1;') }}
 ```
 
+Using the eval tag:
+```twig
+{% eval %}
+    echo file_get_contents("/var/log/system.log");
+{% endeval %}
+```
+
 Tests
 -----
 

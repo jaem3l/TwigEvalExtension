@@ -40,4 +40,19 @@ class EvalExtensionTest extends TestCase
 
         $this->assertSame('3', $output);
     }
+
+    public function testEvalTag()
+    {
+        $templates = [
+            'eval_tag' => '{% eval %}echo 1+3;{% endeval %}',
+        ];
+
+        $loader = new ArrayLoader($templates);
+        $twig = new Environment($loader);
+        $twig->addExtension(new EvalExtension());
+
+        $output = $twig->render('eval_tag');
+
+        $this->assertSame('4', $output);
+    }
 }
