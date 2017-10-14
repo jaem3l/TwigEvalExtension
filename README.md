@@ -12,13 +12,21 @@ Installation
 
 You can install the extension by using composer require.
 
+Example Usage
+-------------
+
+Using the eval function:
+```twig
+{{ eval('echo 1+1;') }}
+```
+
 Tests
 -----
 
 Just run
 
-```
-phpunit tests/Twig/EvalExtensionTest.php
+```bash
+$ vendor/bin/phpunit tests/EvalExtensionTest.php
 ```
 
 No pesky phpunit.xml needed.

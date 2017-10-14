@@ -11,12 +11,18 @@
     ],
     "autoload": {
         "psr-4": {
-            "Brumann\\Twig\\": "src/Twig"
+            "jæm3l\\Twig\\": "src"
         }
     },
-    "require": {},
+    "autoload-dev": {
+        "psr-4": {
+            "jæm3l\\Twig\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "twig/twig": "^1.34.3|^2.4"
+    },
     "require-dev": {
-        "twig/twig": "^2.4",
         "phpunit/phpunit": "^6.4"
     }
 }
