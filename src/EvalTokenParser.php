@@ -12,16 +12,16 @@ class EvalTokenParser extends AbstractTokenParser
     {
         $stream = $this->parser->getStream();
 
-        $stream->expect( \Twig_Token::BLOCK_END_TYPE );
+        $stream->expect(\Twig_Token::BLOCK_END_TYPE);
         $content = $this->parser->subparse([$this, 'decideEvalEnd'], true);
-        $stream->expect( \Twig_Token::BLOCK_END_TYPE );
+        $stream->expect(\Twig_Token::BLOCK_END_TYPE);
 
         return new EvalNode([$content], [], $token->getLine(), $this->getTag());
     }
 
     public function decideEvalEnd(\Twig_Token $token): bool
     {
-        return $token->test( 'endeval' );
+        return $token->test('endeval');
     }
 
     public function getTag(): string
