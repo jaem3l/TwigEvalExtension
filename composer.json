@@ -20,9 +20,9 @@
         }
     },
     "require": {
-        "twig/twig": "^1.34.3|^2.4"
+        "twig/twig": "^2.7|^3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.4"
+        "phpunit/phpunit": "^9.5"
     }
 }
